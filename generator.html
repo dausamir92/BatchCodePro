@@ -27,22 +27,7 @@
 
 <body class="bg-slate-50 font-sans min-h-screen flex flex-col text-slate-900">
 
-    <nav class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-20 font-bold">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-3">
-                    <div class="p-2 bg-blue-600 rounded-lg shadow-sm font-bold">
-                        <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
-                        </svg>
-                    </div>
-                    <span class="font-extrabold text-xl tracking-tight text-slate-800">Batch Code <span
-                            class="text-blue-600">Pro</span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
+
 
     <main class="max-w-7xl mx-auto px-4 py-10 w-full flex-grow">
 
@@ -53,385 +38,303 @@
                 <p class="text-lg text-slate-500 font-medium">Professional web-based utility designed for high-speed
                     bulk label processing.</p>
             </div>
+            <section class="mb-12 text-center">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-slate-800 mb-2">Bulk Generation</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Support for Barcode (Code-128) and QR Codes.</p>
-                </div>
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                     <div
-                        class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-slate-800 mb-2">Smart Overlay</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Adjust position and size on any base image with
-                        real-time visual preview.</p>
-                </div>
-                <div
-                    class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                    <div
-                        class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-bold text-slate-800 mb-2">Instant Export</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed">Lightning-fast ZIP and Excel exports directly from
-                        your browser.</p>
-                </div>
-            </div>
-        </section>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
-            <div class="lg:col-span-1 flex flex-col gap-6">
-                <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="mb-6">
-                        <h2 class="text-md font-bold flex items-center text-slate-800 uppercase tracking-wide">
-                            <span
-                                class="w-7 h-7 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">1</span>
-                            Configuration
-                        </h2>
-                        <div class="mt-4">
-                            <button id="btnResetAll"
-                                class="w-full flex items-center justify-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-red-600 bg-slate-50 hover:bg-red-50 p-3.5 rounded-xl border border-slate-100 transition-all active:scale-[0.98] group whitespace-nowrap">
-                                <svg class="w-4 h-4 group-hover:rotate-12 transition-transform" fill="none"
-                                    stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                    </path>
-                                </svg>
-                                Clear & Start Over
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="mb-6 text-xs">
-                        <label class="block text-slate-400 uppercase mb-3 tracking-widest">Select Code Type</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <input type="radio" name="codeType" id="typeBarcode" value="code128"
-                                    class="hidden type-radio" checked>
-                                <label for="typeBarcode"
-                                    class="block text-center border-2 border-slate-100 rounded-xl p-3 cursor-pointer hover:bg-slate-50 transition-all text-slate-600 text-xs font-bold">Barcode
-                                    (128)</label>
-                            </div>
-                            <div>
-                                <input type="radio" name="codeType" id="typeQR" value="qrcode"
-                                    class="hidden type-radio">
-                                <label for="typeQR"
-                                    class="block text-center border-2 border-slate-100 rounded-xl p-3 cursor-pointer hover:bg-slate-50 transition-all text-slate-600 text-xs font-bold">QR
-                                    Code</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex border-b-2 border-slate-50 mb-6 text-[11px] font-black uppercase">
-                        <button id="btn-upload-tab"
-                            class="flex-1 py-3 text-slate-400 hover:text-slate-600 transition-all">Upload CSV</button>
-                        <button id="btn-gen-tab"
-                            class="flex-1 py-3 text-blue-600 border-b-2 border-blue-600 transition-all">Generate
-                            Series</button>
-                    </div>
-
-                    <div id="panel-upload" class="hidden space-y-4">
-                        <button id="btnDownloadTemplate"
-                            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-wider">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                            </svg>
-                            Template.csv
-                        </button>
-                        <input type="file" id="excelFile" accept=".csv"
-                            class="block w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white file:text-blue-600 border border-slate-200 rounded-xl cursor-pointer bg-white shadow-sm p-1" />
-                    </div>
-
-                    <div id="panel-gen" class="space-y-4">
-                        <div class="grid grid-cols-2 gap-3">
-                            <input type="text" id="genPrefix" placeholder="Prefix"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs outline-none font-bold">
-                            <input type="text" id="genPostfix" placeholder="Postfix"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs outline-none font-bold">
-                        </div>
-                        <select id="genMethod"
-                            class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 outline-none">
-                            <option value="seq">Sequential Numbers</option>
-                            <option value="rand" selected>Random Codes</option>
-                        </select>
-                        <div id="setSeq" class="hidden grid grid-cols-2 gap-3">
-                            <input type="number" id="genStart" value="1" placeholder="Start"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs">
-                            <input type="number" id="genPadding" value="4" placeholder="Pad"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs">
-                        </div>
-                        <div id="setRand" class="space-y-3">
-                            <div class="grid grid-cols-2 gap-3">
-                                <input type="number" id="genRandLen" value="8"
-                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full">
-                                <select id="genCharset"
-                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
-                                    <option value="alphanum">AlphaNum</option>
-                                    <option value="num">Numeric</option>
-                                    <option value="custom" selected>Custom</option>
-                                </select>
-                            </div>
-                            <input type="text" id="customChars" value="ABCDEFGHJKLMNPQRSTUVWXYZ23456789"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
-                        </div>
-                        <input type="number" id="genQty" value="10"
-                            class="w-full border-2 border-slate-100 rounded-lg p-3 text-sm font-black text-blue-600 outline-none">
-                        <button id="btnDoGen"
-                            class="w-full bg-slate-800 hover:bg-black text-white font-bold text-xs py-4 rounded-xl shadow-lg uppercase active:scale-95 transition-all">Apply
-                            All Codes</button>
-                    </div>
-                </div>
-
-                <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
-                        <span
-                            class="w-7 h-7 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">2</span>
-                        Settings
-                    </h2>
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-2 gap-3">
-                            <select id="codeFont"
-                                class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 outline-none">
-                                <option value="monospace">Monospace</option>
-                                <option value="sans-serif">Arial Bold</option>
-                            </select>
-                            <input type="color" id="codeColor" value="#000000"
-                                class="w-full h-10 rounded-lg cursor-pointer border-0 p-0 shadow-sm">
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div><label
-                                    class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Padding</label><input
-                                    type="number" id="codePadding" value="10"
-                                    class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold"></div>
-                            <div class="flex flex-col"><label
-                                    class="text-[10px] text-slate-400 font-bold uppercase text-right block mb-1">Text
-                                    Scale</label><input type="range" id="textScale" min="50" max="250" value="100"
-                                    class="w-full mt-2 cursor-pointer accent-blue-600"></div>
-                        </div>
-                        <div id="settingBarcodeSpec" class="space-y-4">
-                            <div><label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Barcode Width
-                                    (<span id="bcWidthVal">600px</span>)</label><input type="range" id="bcWidth"
-                                    min="100" max="1000" value="600"
-                                    class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600"></div>
-                            <div><label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Barcode Height
-                                    (<span id="bcHeightVal">170px</span>)</label><input type="range" id="bcHeight"
-                                    min="20" max="400" value="170"
-                                    class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600"></div>
-                        </div>
-                        <div id="settingQrSpec" class="hidden">
-                            <label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">QR Size (<span
-                                    id="qrSizeVal">400px</span>)</label>
-                            <input type="range" id="qrRatio" min="50" max="1000" value="400"
-                                class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
-                        <span
-                            class="w-7 h-7 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">3</span>
-                        Overlay Mode
-                    </h2>
-                    <div class="p-4 rounded-xl border border-dashed border-slate-200 bg-slate-50">
-                        <input type="file" id="bgFile" accept="image/*"
-                            class="block w-full text-[10px] text-slate-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white file:font-bold cursor-pointer" />
-                        <button id="btnRemoveBg"
-                            class="hidden text-[10px] text-red-500 font-black mt-2 uppercase">REMOVE IMAGE</button>
-                    </div>
-                </div>
-
-                <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
-                        <span
-                            class="w-7 h-7 bg-emerald-600 text-white rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">4</span>
-                        Download
-                    </h2>
-                    <div class="flex flex-col gap-3">
-                        <button id="btnDownload"
-                            class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-2xl shadow-xl flex justify-center items-center gap-3 transition-all uppercase text-[11px] active:scale-95">
-                            Export All to ZIP
-                        </button>
-                        <button id="btnDownloadExcel"
-                            class="w-full bg-white border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-black py-4 rounded-2xl shadow-sm flex justify-center items-center gap-3 transition-all uppercase text-[11px] active:scale-95">
-                            Export List to Excel
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="lg:col-span-2 flex flex-col gap-8">
-                <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
-                    <div class="flex justify-between mb-4 items-center">
-                        <h3 class="font-black text-slate-800 uppercase text-sm">Visual Canvas Preview</h3>
-                        <div class="flex gap-2 items-center bg-slate-50 p-1.5 rounded-xl border border-slate-100">
-                            <button id="btnZoomOut"
-                                class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-lg font-bold text-slate-400">-</button>
-                            <span id="zoomLevelDisplay"
-                                class="text-[10px] font-black w-14 text-center text-slate-500 uppercase">Fit</span>
-                            <button id="btnZoomIn"
-                                class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-lg font-bold text-slate-400">+</button>
-                            <button id="btnZoomFit"
-                                class="px-3 h-8 bg-white border border-slate-200 rounded-lg text-[9px] font-black uppercase text-blue-600">Reset</button>
-                        </div>
-                    </div>
-                    <div id="canvasContainer" class="canvas-container">
-                        <canvas id="mainCanvas"></canvas>
-                    </div>
-                    <p id="focusHint" class="text-[10px] text-slate-400 font-bold uppercase mt-3">Click canvas to <span
-                            class="text-blue-600">ACTIVATE ZOOM</span></p>
-                </div>
-
-                <div
-                    class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex-grow flex flex-col min-h-[400px]">
-                    <h3
-                        class="font-black text-slate-800 text-sm mb-4 border-b border-slate-50 pb-4 flex justify-between items-center">
-                        BATCH LISTING <span id="batchCount"
-                            class="bg-slate-100 px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold">0
-                            items</span>
-                    </h3>
-                    <div id="batchList" class="preview-scroll overflow-y-auto flex-grow max-h-[600px]"></div>
-                </div>
-            </div>
-        </div>
-
-        <section class="mt-20 border-t border-slate-200 pt-20">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
-                <div>
-                    <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-blue-600 inline-block pb-1">
-                        Developed By</h2>
-                    <div class="flex items-center gap-4 group">
+                        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                         <div
-                            class="w-14 h-14 bg-slate-200 rounded-2xl flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="font-black text-slate-800 text-lg group-hover:text-blue-600 transition-colors">
-                                Firdaus Amir</p>
-                            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Solo Developer</p>
-                        </div>
-                    </div>
-                    <p class="mt-6 text-sm text-slate-500 leading-relaxed font-medium">I simply prompt the AI — no
-                        coding knowledge involved. I just love creating useful tools.</p>
-                </div>
-
-                <div class="relative">
-                    <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-indigo-600 inline-block pb-1">
-                        Roadmap</h2>
-                    <div class="roadmap-line"></div>
-                    <ul class="space-y-8 relative z-10">
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg></div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase mb-1">
-                                    Released</p>
-                                <p class="text-sm font-black text-slate-800">1. Batch Engine Pro</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10 animate-pulse">
-                                <span class="text-xs font-bold">2</span></div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase mb-1">
-                                    Active Coding</p>
-                                <p class="text-sm font-black text-slate-800">2. Pro Designer Suite</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
-                                <span class="text-xs font-bold">3</span></div>
-                            <div class="opacity-70">
-                                <p
-                                    class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
-                                    Planned</p>
-                                <p class="text-sm font-black text-slate-800">3. Workspace Sync</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-emerald-600 inline-block pb-1">
-                        Feedback</h2>
-                    <p class="text-sm text-slate-500 mb-6 font-medium">Please send your feedback directly to my email to
-                        help improve this utility.</p>
-                    <a href="mailto:dausamirwork@gmail.com"
-                        class="flex items-center gap-3 p-3 bg-white border border-slate-200 rounded-xl hover:shadow-md transition-all group font-bold">
-                        <div
-                            class="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                    d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z">
                                 </path>
                             </svg>
                         </div>
-                        <span class="text-xs font-black uppercase text-slate-700">Feedback Email</span>
-                    </a>
+                        <h3 class="font-bold text-slate-800 mb-2">Bulk Generation</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Support for Barcode (Code-128) and QR Codes.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800 mb-2">Smart Overlay</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Adjust position and size on any base image
+                            with
+                            real-time visual preview.</p>
+                    </div>
+                    <div
+                        class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <div
+                            class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-slate-800 mb-2">Instant Export</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Lightning-fast ZIP and Excel exports directly
+                            from
+                            your browser.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 text-left">
+                <div class="lg:col-span-1 flex flex-col gap-6">
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <div class="mb-6">
+                            <h2 class="text-md font-bold flex items-center text-slate-800 uppercase tracking-wide">
+                                <span
+                                    class="w-7 h-7 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">1</span>
+                                Configuration
+                            </h2>
+                            <div class="mt-4">
+                                <button id="btnResetAll"
+                                    class="w-full flex items-center justify-center gap-2 text-[11px] font-black uppercase tracking-widest text-slate-500 hover:text-red-600 bg-slate-50 hover:bg-red-50 p-3.5 rounded-xl border border-slate-100 transition-all active:scale-[0.98] group whitespace-nowrap">
+                                    <svg class="w-4 h-4 group-hover:rotate-12 transition-transform" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                        </path>
+                                    </svg>
+                                    Clear & Start Over
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="mb-6 text-xs">
+                            <label class="block text-slate-400 uppercase mb-3 tracking-widest">Select Code Type</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <input type="radio" name="codeType" id="typeBarcode" value="code128"
+                                        class="hidden type-radio" checked>
+                                    <label for="typeBarcode"
+                                        class="block text-center border-2 border-slate-100 rounded-xl p-3 cursor-pointer hover:bg-slate-50 transition-all text-slate-600 text-xs font-bold">Barcode
+                                        (128)</label>
+                                </div>
+                                <div>
+                                    <input type="radio" name="codeType" id="typeQR" value="qrcode"
+                                        class="hidden type-radio">
+                                    <label for="typeQR"
+                                        class="block text-center border-2 border-slate-100 rounded-xl p-3 cursor-pointer hover:bg-slate-50 transition-all text-slate-600 text-xs font-bold">QR
+                                        Code</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex border-b-2 border-slate-50 mb-6 text-[11px] font-black uppercase">
+                            <button id="btn-upload-tab"
+                                class="flex-1 py-3 text-slate-400 hover:text-slate-600 transition-all">Upload
+                                CSV</button>
+                            <button id="btn-gen-tab"
+                                class="flex-1 py-3 text-blue-600 border-b-2 border-blue-600 transition-all">Generate
+                                Series</button>
+                        </div>
+
+                        <div id="panel-upload" class="hidden space-y-4">
+                            <button id="btnDownloadTemplate"
+                                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl shadow-md flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-wider">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
+                                Template.csv
+                            </button>
+                            <input type="file" id="excelFile" accept=".csv"
+                                class="block w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:bg-white file:text-blue-600 border border-slate-200 rounded-xl cursor-pointer bg-white shadow-sm p-1" />
+                        </div>
+
+                        <div id="panel-gen" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <input type="text" id="genPrefix" placeholder="Prefix"
+                                    class="border border-slate-200 rounded-lg p-2.5 text-xs outline-none font-bold">
+                                <input type="text" id="genPostfix" placeholder="Postfix"
+                                    class="border border-slate-200 rounded-lg p-2.5 text-xs outline-none font-bold">
+                            </div>
+                            <select id="genMethod"
+                                class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 outline-none">
+                                <option value="seq">Sequential Numbers</option>
+                                <option value="rand" selected>Random Codes</option>
+                            </select>
+                            <div id="setSeq" class="hidden grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Start
+                                        Number</label>
+                                    <input type="number" id="genStart" value="1" placeholder="Start"
+                                        class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Digit
+                                        Padding</label>
+                                    <input type="number" id="genPadding" value="4" placeholder="Pad"
+                                        class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700">
+                                </div>
+                            </div>
+                            <div id="setRand" class="space-y-3">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <input type="number" id="genRandLen" value="8"
+                                        class="border border-slate-200 rounded-lg p-2.5 text-xs w-full">
+                                    <select id="genCharset"
+                                        class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
+                                        <option value="alphanum">AlphaNum</option>
+                                        <option value="num">Numeric</option>
+                                        <option value="custom" selected>Custom</option>
+                                    </select>
+                                </div>
+                                <textarea id="customChars" rows="2"
+                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold resize-none leading-relaxed break-all">ABCDEFGHJKLMNPQRSTUVWXYZ23456789</textarea>
+                            </div>
+                            <input type="number" id="genQty" value="10"
+                                class="w-full border-2 border-slate-100 rounded-lg p-3 text-sm font-black text-blue-600 outline-none">
+                            <button id="btnDoGen"
+                                class="w-full bg-slate-800 hover:bg-black text-white font-bold text-xs py-4 rounded-xl shadow-lg uppercase active:scale-95 transition-all">Apply
+                                All Codes</button>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
+                            <span
+                                class="w-7 h-7 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">2</span>
+                            Settings
+                        </h2>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-3">
+                                <select id="codeFont"
+                                    class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-semibold text-slate-700 outline-none">
+                                    <option value="monospace">Monospace</option>
+                                    <option value="sans-serif">Arial Bold</option>
+                                    <option value="'Courier New', Courier, monospace">Courier New</option>
+                                    <option value="'Times New Roman', Times, serif">Times New Roman</option>
+                                    <option value="'Verdana', Geneva, sans-serif">Verdana</option>
+                                    <option value="'Georgia', serif">Georgia</option>
+                                    <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                                    <option value="'Impact', sans-serif">Impact</option>
+                                </select>
+                                <input type="color" id="codeColor" value="#000000"
+                                    class="w-full h-10 rounded-lg cursor-pointer border-0 p-0 shadow-sm">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label
+                                        class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Padding</label><input
+                                        type="number" id="codePadding" value="10"
+                                        class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold"></div>
+                                <div class="flex flex-col"><label
+                                        class="text-[10px] text-slate-400 font-bold uppercase text-right block mb-1">Text
+                                        Scale</label><input type="range" id="textScale" min="50" max="250" value="100"
+                                        class="w-full mt-2 cursor-pointer accent-blue-600"></div>
+                            </div>
+                            <div id="settingBarcodeSpec" class="space-y-4">
+                                <div><label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Barcode
+                                        Width
+                                        (<span id="bcWidthVal">600px</span>)</label><input type="range" id="bcWidth"
+                                        min="100" max="1000" value="600"
+                                        class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600">
+                                </div>
+                                <div><label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Barcode
+                                        Height
+                                        (<span id="bcHeightVal">170px</span>)</label><input type="range" id="bcHeight"
+                                        min="20" max="400" value="170"
+                                        class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600">
+                                </div>
+                            </div>
+                            <div id="settingQrSpec" class="hidden">
+                                <label class="text-[10px] text-slate-400 font-bold uppercase block mb-1">QR Size (<span
+                                        id="qrSizeVal">400px</span>)</label>
+                                <input type="range" id="qrRatio" min="50" max="1000" value="400"
+                                    class="w-full h-1.5 bg-slate-100 rounded-lg cursor-pointer accent-blue-600">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
+                            <span
+                                class="w-7 h-7 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">3</span>
+                            Overlay Mode
+                        </h2>
+                        <div class="p-4 rounded-xl border border-dashed border-slate-200 bg-slate-50">
+                            <input type="file" id="bgFile" accept="image/*"
+                                class="block w-full text-[10px] text-slate-400 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:bg-blue-600 file:text-white file:font-bold cursor-pointer" />
+                            <button id="btnRemoveBg"
+                                class="hidden text-[10px] text-red-500 font-black mt-2 uppercase">REMOVE IMAGE</button>
+                        </div>
+                    </div>
+
+                    <div class="step-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                        <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
+                            <span
+                                class="w-7 h-7 bg-emerald-600 text-white rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">4</span>
+                            Download
+                        </h2>
+                        <div class="flex flex-col gap-3">
+                            <button id="btnDownload"
+                                class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-2xl shadow-xl flex justify-center items-center gap-3 transition-all uppercase text-[11px] active:scale-95">
+                                Export All to ZIP
+                            </button>
+                            <button id="btnDownloadExcel"
+                                class="w-full bg-white border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 font-black py-4 rounded-2xl shadow-sm flex justify-center items-center gap-3 transition-all uppercase text-[11px] active:scale-95">
+                                Export List to Excel
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-                    <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-slate-400 inline-block pb-1">
-                        System Status</h2>
-                    <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-                        <div class="flex justify-between items-center"><span
-                                class="text-xs font-black uppercase text-slate-400">Version</span><span
-                                class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded-md">V1.0.3
-                                Stable</span></div>
-                        <div class="flex justify-between text-xs font-bold"><span class="text-slate-400 uppercase">Last
-                                Build</span><span class="text-slate-800">Dec 21, 2024</span></div>
-                        <div class="flex justify-between text-xs font-bold"><span
-                                class="text-slate-400 uppercase">Status</span><span
-                                class="text-emerald-500">Online</span></div>
+                <div class="lg:col-span-2 flex flex-col gap-8">
+                    <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+                        <div class="flex justify-between mb-4 items-center">
+                            <h3 class="font-black text-slate-800 uppercase text-sm">Visual Canvas Preview</h3>
+                            <div class="flex gap-2 items-center bg-slate-50 p-1.5 rounded-xl border border-slate-100">
+                                <button id="btnZoomOut"
+                                    class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-lg font-bold text-slate-400">-</button>
+                                <span id="zoomLevelDisplay"
+                                    class="text-[10px] font-black w-14 text-center text-slate-500 uppercase">Fit</span>
+                                <button id="btnZoomIn"
+                                    class="w-8 h-8 flex items-center justify-center bg-white border border-slate-200 rounded-lg font-bold text-slate-400">+</button>
+                                <button id="btnZoomFit"
+                                    class="px-3 h-8 bg-white border border-slate-200 rounded-lg text-[9px] font-black uppercase text-blue-600">Reset</button>
+                            </div>
+                        </div>
+                        <div id="canvasContainer" class="canvas-container">
+                            <canvas id="mainCanvas"></canvas>
+                        </div>
+                        <p id="focusHint" class="text-[10px] text-slate-400 font-bold uppercase mt-3">Click canvas to
+                            <span class="text-blue-600">ACTIVATE ZOOM</span>
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 flex-grow flex flex-col min-h-[400px]">
+                        <h3
+                            class="font-black text-slate-800 text-sm mb-4 border-b border-slate-50 pb-4 flex justify-between items-center">
+                            BATCH LISTING <span id="batchCount"
+                                class="bg-slate-100 px-3 py-1 rounded-full text-[10px] text-slate-500 font-bold">0
+                                items</span>
+                        </h3>
+                        <div id="batchList" class="preview-scroll overflow-y-auto flex-grow max-h-[600px]"></div>
                     </div>
                 </div>
             </div>
-            <p class="mt-20 text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] text-center">Batch Code Pro
-                © 2025 | solo project by firdaus amir</p>
-        </section>
+
     </main>
+    <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/footer.js"></script>
 
     <div id="messageModal"
         class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden z-[100] flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
             <div id="modalHeader"
                 class="bg-red-600 p-5 text-white font-black flex justify-between items-center uppercase text-sm">
-                <span>Alert</span><button onclick="closeModal()" class="text-xl font-bold">&times;</button></div>
+                <span>Alert</span><button onclick="closeModal()" class="text-xl font-bold">&times;</button>
+            </div>
             <div class="p-8 text-center">
                 <p id="modalBody" class="text-slate-600 text-xs font-semibold mb-8"></p><button onclick="closeModal()"
                     class="w-full bg-slate-900 text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase">Close</button>

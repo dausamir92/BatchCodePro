@@ -3,30 +3,324 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Batch Code Pro</title>
-  <!-- Switched to local CLI output -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Batch Code Pro - Dashboard</title>
   <link href="./assets/css/output.css" rel="stylesheet">
+  <!-- Inline styles to guarantee layout structure regardless of CSS file state -->
+  <style>
+    /* Base Reset & Layout */
+    body {
+      background-color: #f8fafc;
+      /* slate-50 */
+      color: #0f172a;
+      /* slate-900 */
+    }
+
+    .saas-container {
+      width: 100%;
+      max-width: 1280px;
+      /* Matched to max-w-7xl footer */
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    .saas-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: stretch;
+      /* Stretches sidebar to match main content height */
+    }
+
+    /* Sidebar Styling */
+    .saas-sidebar {
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      /* slate-200 */
+      overflow: hidden;
+      flex-shrink: 0;
+      /* Removed sticky positioning as requested ("no moveable") */
+    }
+
+    /* Main Content Styling */
+    .saas-main {
+      flex: 1;
+      width: 100%;
+      min-width: 0;
+    }
+
+    /* Grid System */
+    .saas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (min-width: 768px) {
+      .saas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns ensures 4 items form a perfect 2x2 block */
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .saas-layout {
+        flex-direction: row;
+      }
+
+      .saas-sidebar {
+        width: 240px;
+      }
+
+      /* Keeping grid 2-cols max to avoid empty spaces with 4 items */
+      .saas-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1280px) {
+
+      /* 4 cols for 1280px width to avoid big cards */
+      .saas-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+
+    /* Utilities */
+    .icon-size-20 {
+      width: 20px;
+      height: 20px;
+    }
+
+    .icon-size-16 {
+      width: 16px;
+      height: 16px;
+    }
+
+    .icon-size-12 {
+      width: 12px;
+      height: 12px;
+    }
+  </style>
 </head>
 
-<body class="bg-slate-50 min-h-screen flex items-center justify-center">
+<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
 
-  <div class="bg-white p-10 rounded-3xl shadow-xl text-center max-w-md">
-    <h1 class="text-3xl font-black mb-4">Batch Code Pro</h1>
-    <p class="text-slate-500 mb-8">
-      Bulk barcode & QR generator — browser based.
-    </p>
+  <script src="./assets/js/header.js"></script>
 
-    <div class="flex flex-col gap-4">
-      <a href="generator.html"
-        class="bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors">
-        🚀 Open Generator
-      </a>
+  <!-- WRAPPER -->
+  <div class="saas-container">
 
-      <a href="history.html" class="bg-slate-100 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors">
-        📜 View History
-      </a>
+    <div class="saas-layout">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="saas-sidebar">
+        <div class="flex flex-col h-full">
+          <!-- Sidebar Header -->
+          <div class="p-5 border-b border-slate-100 bg-slate-50/50">
+            <h2 class="text-xs font-black text-slate-700 uppercase tracking-widest">My Workspace</h2>
+            <p class="text-[10px] text-slate-400 font-bold mt-1">Sign in to sync your data</p>
+          </div>
+
+          <!-- Login Form -->
+          <div class="p-5 space-y-4">
+            <div>
+              <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1.5">Email</label>
+              <input type="email" disabled placeholder="user@example.com"
+                class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-400 cursor-not-allowed">
+            </div>
+            <div>
+              <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1.5">Password</label>
+              <input type="password" disabled placeholder="••••••••"
+                class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-400 cursor-not-allowed">
+            </div>
+            <button disabled
+              class="w-full bg-slate-100 text-slate-400 font-black py-2.5 rounded-lg text-[10px] uppercase cursor-not-allowed flex justify-center items-center gap-2 hover:bg-slate-200 transition-colors">
+              <svg class="icon-size-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                </path>
+              </svg>
+              Coming Soon
+            </button>
+          </div>
+
+          <!-- Cloud Features Note -->
+          <!-- Cloud Features Note -->
+          <!-- Cloud Features Note -->
+          <div class="px-4 py-3 mt-auto border-t border-slate-100 bg-slate-50/50">
+            <div class="space-y-3">
+              <div>
+                <p class="text-[10px] font-black text-slate-700 uppercase tracking-wide">Unlimited Batching</p>
+                <p class="text-[10px] text-slate-400 leading-snug">Generate 1000+ codes instantly.</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-black text-slate-700 uppercase tracking-wide">Cloud Storage</p>
+                <p class="text-[10px] text-slate-400 leading-snug">Auto-sync your label projects.</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-black text-slate-700 uppercase tracking-wide">Priority Support</p>
+                <p class="text-[10px] text-slate-400 leading-snug">Direct developer access.</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-black text-slate-700 uppercase tracking-wide">Advanced Analytics</p>
+                <p class="text-[10px] text-slate-400 leading-snug">Track usage and performance.</p>
+              </div>
+            </div>
+
+            <!-- Security Badge REMOVED for balance -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <div class="saas-main">
+
+        <!-- DASHBOARD HEADER / HERO -->
+        <!-- DASHBOARD HEADER / HERO -->
+        <div class="mb-8 rounded-2xl p-8 bg-white border border-slate-200 shadow-sm relative overflow-hidden group">
+          <div
+            class="absolute top-0 right-0 w-64 h-64 bg-blue-50/50 rounded-full -translate-y-1/2 translate-x-1/4 blur-3xl pointer-events-none">
+          </div>
+          <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="flex-1">
+
+              <h1 class="text-3xl font-black text-slate-900 tracking-tight mb-3">Welcome to Batch Code Pro</h1>
+              <p class="text-slate-500 text-sm leading-relaxed max-w-2xl font-medium">
+                Your dedicated suite for high-volume label generation and management.
+                <span class="text-slate-800 font-bold">Select an active module below</span> to start your workflow, or
+                check the roadmap for upcoming creative tools.
+              </p>
+            </div>
+
+            <!-- Visual Stat / Quick Info -->
+            <div class="hidden md:flex items-center gap-8 border-l border-slate-100 pl-8">
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Active Tools</p>
+                <p class="text-2xl font-black text-slate-800">01</p>
+              </div>
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Coming Soon</p>
+                <p class="text-2xl font-black text-slate-300">03</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE GRID -->
+        <div class="saas-grid">
+
+          <!-- CARD 1: GENERATOR (LIVE) -->
+          <a href="generator.html"
+            class="flex flex-col bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200 group h-64 relative overflow-hidden">
+            <div class="p-6 flex-grow flex flex-col justify-center items-center text-center">
+              <div
+                class="w-14 h-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                <svg class="icon-size-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
+                </svg>
+              </div>
+
+              <h3 class="text-base font-bold text-slate-900 mb-2">Barcode Generator</h3>
+              <p class="text-xs text-slate-500 leading-relaxed max-w-[200px]">Powerful bulk generation for Code-128 & QR
+                codes with instant export.</p>
+            </div>
+
+            <div
+              class="px-6 py-4 border-t border-slate-50 bg-slate-50/50 flex justify-between items-center group-hover:bg-blue-50/50 transition-colors">
+              <span class="text-[10px] font-black text-blue-600 uppercase tracking-widest">Launch
+                Module</span>
+              <svg
+                class="icon-size-16 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                </path>
+              </svg>
+            </div>
+          </a>
+
+          <!-- CARD 2: QR DESIGNER (LOCKED) -->
+          <div class="flex flex-col bg-slate-50 rounded-xl border border-slate-200 h-64 relative overflow-hidden group">
+            <!-- Locked Overlay Indicator -->
+
+
+            <div
+              class="p-6 flex-grow flex flex-col justify-center items-center text-center opacity-50 grayscale transition-all group-hover:grayscale-0 group-hover:opacity-75">
+              <div
+                class="w-14 h-14 bg-white border border-slate-200 text-slate-400 rounded-2xl flex items-center justify-center mb-4">
+                <svg class="icon-size-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="text-base font-bold text-slate-600 mb-2">QR Designer</h3>
+              <p class="text-xs text-slate-400 leading-relaxed max-w-[200px]">Artistic QR customizer with logos, colors,
+                and dots.</p>
+            </div>
+            <div
+              class="px-6 py-4 border-t border-slate-100 bg-slate-100/50 flex justify-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Coming Soon
+            </div>
+          </div>
+
+          <!-- CARD 3: WEB CARD (LOCKED) -->
+          <div class="flex flex-col bg-slate-50 rounded-xl border border-slate-200 h-64 relative overflow-hidden group">
+
+            <div
+              class="p-6 flex-grow flex flex-col justify-center items-center text-center opacity-50 grayscale transition-all group-hover:grayscale-0 group-hover:opacity-75">
+              <div
+                class="w-14 h-14 bg-white border border-slate-200 text-slate-400 rounded-2xl flex items-center justify-center mb-4">
+                <svg class="icon-size-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="text-base font-bold text-slate-600 mb-2">Web Cards</h3>
+              <p class="text-xs text-slate-400 leading-relaxed max-w-[200px]">Create interactive digital business cards.
+              </p>
+            </div>
+            <div
+              class="px-6 py-4 border-t border-slate-100 bg-slate-100/50 flex justify-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Coming Soon
+            </div>
+          </div>
+
+          <!-- CARD 4: PDF TOOLS (LOCKED) -->
+          <div class="flex flex-col bg-slate-50 rounded-xl border border-slate-200 h-64 relative overflow-hidden group">
+
+            <div
+              class="p-6 flex-grow flex flex-col justify-center items-center text-center opacity-50 grayscale transition-all group-hover:grayscale-0 group-hover:opacity-75">
+              <div
+                class="w-14 h-14 bg-white border border-slate-200 text-slate-400 rounded-2xl flex items-center justify-center mb-4">
+                <svg class="icon-size-20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                  </path>
+                </svg>
+              </div>
+              <h3 class="text-base font-bold text-slate-600 mb-2">PDF Tools</h3>
+              <p class="text-xs text-slate-400 leading-relaxed max-w-[200px]">Merge, split, and convert PDF utilities.
+              </p>
+            </div>
+            <div
+              class="px-6 py-4 border-t border-slate-100 bg-slate-100/50 flex justify-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              Coming Soon
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
+
+  <script src="./assets/js/footer.js"></script>
 
 </body>
 

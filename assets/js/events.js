@@ -1,127 +1,140 @@
 /* ================================
+   EVENT LISTENERS
+   ================================
+   Handles all user interactions: clicks, changes, drags, etc.
+*/
+
+/* ================================
    CANVAS FOCUS & ZOOM
 ================================ */
+// Click event for container to activate canvas focus
 els.container.addEventListener('click', (e) => {
-    state.isCanvasActive = true;
-    els.container.classList.add('is-focused');
+    state.isCanvasActive = true; // Set active state
+    els.container.classList.add('is-focused'); // Add visual focus class
     els.focusHint.innerHTML =
-        'Zoom <span class="text-blue-600 font-bold">LOCKED TO CANVAS</span>';
-    e.stopPropagation();
+        'Zoom <span class="text-blue-600 font-bold">LOCKED TO CANVAS</span>'; // Update hint
+    e.stopPropagation(); // Prevent bubbling
 });
 
+// Click event for document to deactivate canvas focus
 document.addEventListener('click', () => {
-    state.isCanvasActive = false;
-    els.container.classList.remove('is-focused');
+    state.isCanvasActive = false; // Unset active state
+    els.container.classList.remove('is-focused'); // Remove visual focus class
     els.focusHint.innerHTML =
-        'Click canvas to <span class="text-blue-600 font-bold">ACTIVATE ZOOM</span>';
+        'Click canvas to <span class="text-blue-600 font-bold">ACTIVATE ZOOM</span>'; // Reset hint
 });
 
+// Wheel event for zooming
 els.container.onwheel = (e) => {
-    if (!state.isCanvasActive) return;
-    e.preventDefault();
-    state.zoomMode = 'manual';
-    state.zoomLevel *= (e.deltaY < 0 ? 1.1 : 0.9);
-    updateZoom();
+    if (!state.isCanvasActive) return; // Only zoom if active
+    e.preventDefault(); // Prevent page scroll
+    state.zoomMode = 'manual'; // Switch to manual zoom
+    state.zoomLevel *= (e.deltaY < 0 ? 1.1 : 0.9); // Adjust zoom level
+    updateZoom(); // Reflect changes
 };
 
 /* ================================
    RESET & GENERATE
 ================================ */
+// Reset button handler
 els.btnResetAll.onclick = () => {
-    state.dataList = ["YOURCODESHOWHERE"];
-    state.previewIndex = 0;
-    state.bgImage = null;
+    state.dataList = ["YOURCODESHOWHERE"]; // Reset data
+    state.previewIndex = 0; // Reset index
+    state.bgImage = null; // Clear background
 
-    renderBatchList();
-    updateLayout();
-    render();
+    renderBatchList(); // Re-render list
+    updateLayout(); // Re-calc layout
+    render(); // Re-draw canvas
 
-    showMessage("Reset", "Cleared.", false);
+    showMessage("Reset", "Cleared.", false); // Show success message
 };
 
+// Generate button handler
 els.btnDoGen.onclick = () => {
-    document.body.classList.add('updating');
+    document.body.classList.add('updating'); // Add loading state
 
     setTimeout(() => {
-        const arr = [];
-        const qty = parseInt(els.genQty.value) || 1;
-        const pre = els.genPrefix.value || "";
-        const post = els.genPostfix.value || "";
+        const arr = []; // Temp array
+        const qty = parseInt(els.genQty.value) || 1; // Get quantity
+        const pre = els.genPrefix.value || ""; // Get prefix
+        const post = els.genPostfix.value || ""; // Get postfix
 
-        if (els.genMethod.value === 'seq') {
-            const start = parseInt(els.genStart.value) || 1;
-            const pad = parseInt(els.genPadding.value) || 0;
+        if (els.genMethod.value === 'seq') { // Sequential generation
+            const start = parseInt(els.genStart.value) || 1; // Start number
+            const pad = parseInt(els.genPadding.value) || 0; // Padding
             for (let i = 0; i < qty; i++) {
-                arr.push(pre + (start + i).toString().padStart(pad, '0') + post);
+                arr.push(pre + (start + i).toString().padStart(pad, '0') + post); // Generate and push
             }
-        } else {
-            const len = parseInt(els.genRandLen.value) || 8;
+        } else { // Random generation
+            const len = parseInt(els.genRandLen.value) || 8; // Length
             let cs =
                 els.genCharset.value === 'num'
-                    ? "0123456789"
+                    ? "0123456789" // Numeric charset
                     : els.genCharset.value === 'custom'
-                    ? els.customChars.value
-                    : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                        ? els.customChars.value // Custom charset
+                        : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // Alphanumeric charset
 
             for (let i = 0; i < qty; i++) {
                 let r = "";
                 for (let j = 0; j < len; j++) {
-                    r += cs.charAt(Math.floor(Math.random() * cs.length));
+                    r += cs.charAt(Math.floor(Math.random() * cs.length)); // Generate random string
                 }
-                arr.push(pre + r + post);
+                arr.push(pre + r + post); // Push formatted string
             }
         }
 
-        state.dataList = arr;
-        state.previewIndex = 0;
+        state.dataList = arr; // Update state
+        state.previewIndex = 0; // Reset index
 
-        renderBatchList();
-        updateLayout();
-        render();
+        renderBatchList(); // Render list
+        updateLayout(); // Update layout
+        render(); // Render canvas
 
-        document.body.classList.remove('updating');
+        document.body.classList.remove('updating'); // Remove loading state
     }, 300);
 };
 
 /* ================================
    CANVAS DRAG / RESIZE / PAN
 ================================ */
+// Mouse down handler for drag/resize/pan
 els.container.onmousedown = (e) => {
-    if (e.target !== els.canvas) {
-        state.isPanning = true;
-        state.panStartX = e.clientX;
-        state.panStartY = e.clientY;
-        state.panScrollL = els.container.scrollLeft;
-        state.panScrollT = els.container.scrollTop;
+    if (e.target !== els.canvas) { // If clicking outside canvas
+        state.isPanning = true; // Enable panning
+        state.panStartX = e.clientX; // Record start X
+        state.panStartY = e.clientY; // Record start Y
+        state.panScrollL = els.container.scrollLeft; // Record scroll Left
+        state.panScrollT = els.container.scrollTop; // Record scroll Top
         return;
     }
 
-    const rect = els.canvas.getBoundingClientRect();
-    const sx = els.canvas.width / rect.width;
-    const sy = els.canvas.height / rect.height;
+    const rect = els.canvas.getBoundingClientRect(); // Get canvas rect
+    const sx = els.canvas.width / rect.width; // Scale X
+    const sy = els.canvas.height / rect.height; // Scale Y
 
-    const px = (e.clientX - rect.left) * sx;
-    const py = (e.clientY - rect.top) * sy;
+    const px = (e.clientX - rect.left) * sx; // Pointer X relative to canvas
+    const py = (e.clientY - rect.top) * sy; // Pointer Y relative to canvas
 
-    const { x, y, w, h } = state.box;
-    const tol = 20 / state.zoomLevel;
+    const { x, y, w, h } = state.box; // Get box coords
+    const tol = 20 / state.zoomLevel; // Tolerance for resize handle
 
-    if (px > x + w - tol && py > y + h - tol) {
+    if (px > x + w - tol && py > y + h - tol) { // Check resize logic
         state.isResizing = true;
     } else if (
         px > x && px < x + w &&
         py > y && py < y + h &&
         state.bgImage
-    ) {
+    ) { // Check drag logic
         state.isDragging = true;
     }
 
-    state.lastX = px;
-    state.lastY = py;
+    state.lastX = px; // Store last X
+    state.lastY = py; // Store last Y
 };
 
+// Mouse move handler for drag/resize/pan
 window.onmousemove = (e) => {
-    if (state.isPanning) {
+    if (state.isPanning) { // Panning logic
         els.container.scrollLeft =
             state.panScrollL - (e.clientX - state.panStartX);
         els.container.scrollTop =
@@ -129,22 +142,22 @@ window.onmousemove = (e) => {
         return;
     }
 
-    if (!state.isDragging && !state.isResizing) return;
+    if (!state.isDragging && !state.isResizing) return; // Exit if no action
 
-    const rect = els.canvas.getBoundingClientRect();
-    const sx = els.canvas.width / rect.width;
-    const sy = els.canvas.height / rect.height;
+    const rect = els.canvas.getBoundingClientRect(); // Get canvas rect
+    const sx = els.canvas.width / rect.width; // Scale X
+    const sy = els.canvas.height / rect.height; // Scale Y
 
-    const px = (e.clientX - rect.left) * sx;
-    const py = (e.clientY - rect.top) * sy;
+    const px = (e.clientX - rect.left) * sx; // Pointer X
+    const py = (e.clientY - rect.top) * sy; // Pointer Y
 
-    const dx = px - state.lastX;
-    const dy = py - state.lastY;
+    const dx = px - state.lastX; // Delta X
+    const dy = py - state.lastY; // Delta Y
 
-    if (state.isDragging) {
+    if (state.isDragging) { // Dragging logic
         state.box.x += dx;
         state.box.y += dy;
-    } else if (state.isResizing) {
+    } else if (state.isResizing) { // Resizing logic
         const newW = Math.max(50, state.box.w + dx) - state.padding * 2;
         if (state.codeType === 'code128') {
             state.bcWidth = newW;
@@ -156,11 +169,12 @@ window.onmousemove = (e) => {
         updateLayout();
     }
 
-    state.lastX = px;
-    state.lastY = py;
-    render();
+    state.lastX = px; // Update last X
+    state.lastY = py; // Update last Y
+    render(); // Redraw
 };
 
+// Mouse up handler to stop actions
 window.onmouseup = () => {
     state.isDragging = false;
     state.isResizing = false;
@@ -170,6 +184,28 @@ window.onmouseup = () => {
 /* ================================
    FORM / TAB / SLIDER
 ================================ */
+els.genMethod.onchange = () => {
+    if (els.genMethod.value === 'seq') {
+        els.setSeq.classList.remove('hidden');
+        els.setRand.classList.add('hidden');
+    } else {
+        els.setSeq.classList.add('hidden');
+        els.setRand.classList.remove('hidden');
+    }
+};
+
+// Charset OnChange: Update custom chars input based on selection
+els.genCharset.onchange = () => {
+    const v = els.genCharset.value;
+    if (v === 'num') {
+        els.customChars.value = "0123456789";
+    } else if (v === 'alphanum') {
+        els.customChars.value = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    } else {
+        els.customChars.value = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    }
+};
+
 els.btnUploadTab.onclick = () => {
     els.btnUploadTab.className =
         "flex-1 py-3 text-blue-600 border-b-2 border-blue-600";
@@ -203,6 +239,29 @@ els.bcHeight.oninput = (e) => {
 els.qrRatio.oninput = (e) => {
     state.qrRatio = parseInt(e.target.value);
     els.qrSizeVal.textContent = state.qrRatio + "px";
+    updateLayout();
+    render();
+};
+
+els.textScale.oninput = (e) => {
+    state.textScale = parseInt(e.target.value);
+    updateLayout();
+    render();
+};
+
+// Settings Listeners
+els.codeFont.onchange = (e) => {
+    state.font = e.target.value;
+    render();
+};
+
+els.codeColor.oninput = (e) => {
+    state.color = e.target.value;
+    render();
+};
+
+els.codePadding.oninput = (e) => {
+    state.padding = parseInt(e.target.value);
     updateLayout();
     render();
 };
