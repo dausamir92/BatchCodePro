@@ -9,16 +9,16 @@
     <link href="./assets/css/output.css" rel="stylesheet">
     <link href="./assets/css/generator.css" rel="stylesheet">
     <!-- Excel / CSV parser -->
-    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="./assets/js/lib/xlsx.full.min.js"></script>
 
     <!-- Barcode generator (Code128) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bwip-js/3.0.4/bwip-js-min.js"></script>
+    <script src="./assets/js/lib/bwip-js-min.js"></script>
 
     <!-- ZIP export -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="./assets/js/lib/jszip.min.js"></script>
 
     <!-- File download helper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="./assets/js/lib/FileSaver.min.js"></script>
 
 
 
@@ -220,19 +220,22 @@
                             <div>
                                 <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Start
                                     Number</label>
-                                <input type="number" id="genStart" value="1" placeholder="Start"
+                                <input type="number" id="genStart" value="1" placeholder="Start" min="0"
+                                    oninput="if(this.value<0)this.value=0"
                                     class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700">
                             </div>
                             <div>
                                 <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Digit
                                     Padding</label>
                                 <input type="number" id="genPadding" value="4" min="0" placeholder="Pad"
+                                    oninput="if(this.value<0)this.value=0"
                                     class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700">
                             </div>
                         </div>
                         <div id="setRand" class="space-y-3">
                             <div class="grid grid-cols-2 gap-3">
-                                <input type="number" id="genRandLen" value="8"
+                                <input type="number" id="genRandLen" value="8" min="1"
+                                    oninput="if(this.value<1)this.value=1"
                                     class="border border-slate-200 rounded-lg p-2.5 text-xs w-full">
                                 <select id="genCharset"
                                     class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
@@ -244,8 +247,9 @@
                             <textarea id="customChars" rows="2"
                                 class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold resize-none leading-relaxed break-all">ABCDEFGHJKLMNPQRSTUVWXYZ23456789</textarea>
                         </div>
-                        <input type="number" id="genQty" value="10"
-                            class="w-full border-2 border-slate-100 rounded-lg p-3 text-sm font-black text-blue-600 outline-none">
+                        <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Quantity</label>
+                        <input type="number" id="genQty" value="10" min="1" oninput="if(this.value<1)this.value=1"
+                            class="w-full border-2 border-slate-100 rounded-lg p-3 text-sm font-black text-blue-600 outline-none mb-4">
                         <button id="btnDoGen"
                             class="w-full bg-slate-800 hover:bg-black text-white font-bold text-xs py-4 rounded-xl shadow-lg uppercase active:scale-95 transition-all">Apply
                             All Codes</button>
@@ -278,6 +282,7 @@
                             <div><label
                                     class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Padding</label><input
                                     type="number" id="codePadding" value="10" min="0"
+                                    oninput="if(this.value<0)this.value=0"
                                     class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold"></div>
                             <div class="flex flex-col"><label
                                     class="text-[10px] text-slate-400 font-bold uppercase text-right block mb-1">Text

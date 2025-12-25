@@ -5,6 +5,49 @@
 */
 
 /* ================================
+   HELPER: FORCE DOWNLOAD
+   ================================ */
+window.downloadBlob = (blob, filename) => {
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+};
+
+/* ================================
+   INPUT SANITATION
+   ================================ */
+// Strict enforcement: Block invalid keys (e, +, -, .) and paste non-digits
+['genQty', 'genStart', 'genPadding', 'genRandLen', 'codePadding'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        // Prevent typing non-digits
+        el.addEventListener('keydown', (e) => {
+            // Allow: backspace, delete, tab, escape, enter, ctrl+a, home, end, left, right
+            if ([46, 8, 9, 27, 13, 110, 190].indexOf(e.keyCode) !== -1 ||
+                (e.keyCode === 65 && e.ctrlKey === true) ||
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        // Sanitize on blur (min value check)
+        el.addEventListener('blur', () => {
+            const min = parseInt(el.getAttribute('min')) || 0;
+            if (!el.value || parseInt(el.value) < min) el.value = min;
+        });
+    }
+});
+
+/* ================================
    CANVAS FOCUS & ZOOM
 ================================ */
 // Click event for container to activate canvas focus
@@ -50,48 +93,68 @@ els.btnResetAll.onclick = () => {
 };
 
 // Generate button handler
-els.btnDoGen.onclick = () => {
-    document.body.classList.add('updating'); // Add loading state
+els.btnDoGen.onclick = async () => {
+    els.modal.classList.remove('hidden'); // Show loading modal
+    els.progress.style.width = "0%";
+    els.progLabel.textContent = "Starting...";
 
-    setTimeout(() => {
-        const arr = []; // Temp array
-        const qty = parseInt(els.genQty.value) || 1; // Get quantity
-        const pre = els.genPrefix.value || ""; // Get prefix
-        const post = els.genPostfix.value || ""; // Get postfix
+    const arr = []; // Temp array
+    const qty = parseInt(els.genQty.value) || 1; // Get quantity
+    const pre = els.genPrefix.value || ""; // Get prefix
+    const post = els.genPostfix.value || ""; // Get postfix
+    const isSeq = els.genMethod.value === 'seq';
 
-        if (els.genMethod.value === 'seq') { // Sequential generation
-            const start = parseInt(els.genStart.value) || 1; // Start number
-            const pad = parseInt(els.genPadding.value) || 0; // Padding
-            for (let i = 0; i < qty; i++) {
-                arr.push(pre + (start + i).toString().padStart(pad, '0') + post); // Generate and push
-            }
-        } else { // Random generation
-            const len = parseInt(els.genRandLen.value) || 8; // Length
-            let cs =
-                els.genCharset.value === 'num'
-                    ? "0123456789" // Numeric charset
-                    : els.genCharset.value === 'custom'
-                        ? els.customChars.value // Custom charset
-                        : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"; // Alphanumeric charset
+    // Prep variables for loop
+    const start = parseInt(els.genStart.value) || 1;
+    const pad = parseInt(els.genPadding.value) || 0;
+    const len = parseInt(els.genRandLen.value) || 8;
 
-            for (let i = 0; i < qty; i++) {
-                let r = "";
-                for (let j = 0; j < len; j++) {
-                    r += cs.charAt(Math.floor(Math.random() * cs.length)); // Generate random string
-                }
-                arr.push(pre + r + post); // Push formatted string
-            }
+    let cs = "";
+    if (!isSeq) {
+        cs = els.genCharset.value === 'num'
+            ? "0123456789"
+            : els.genCharset.value === 'custom'
+                ? els.customChars.value
+                : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    }
+
+    // Fixed 3000ms duration per user request
+    const targetDuration = 3000;
+    // Aim for ~60 frames of animation for smoothness over 3s
+    const updateEvery = Math.max(1, Math.floor(qty / 60));
+    // Calculate delay per update step
+    const stepDelay = targetDuration / (qty / updateEvery);
+
+    for (let i = 0; i < qty; i++) {
+        // Yield to UI based on calculated batch steps
+        if (i % updateEvery === 0 || i === qty - 1) {
+            if (stepDelay > 0) await new Promise(r => setTimeout(r, stepDelay));
+            els.progress.style.width = ((i + 1) / qty * 100) + "%";
+            els.progLabel.textContent = `Generating ${i + 1}/${qty}`;
         }
 
-        state.dataList = arr; // Update state
-        state.previewIndex = 0; // Reset index
+        if (isSeq) { // Sequential generation
+            arr.push(pre + (start + i).toString().padStart(pad, '0') + post);
+        } else { // Random generation
+            let r = "";
+            for (let j = 0; j < len; j++) {
+                r += cs.charAt(Math.floor(Math.random() * cs.length));
+            }
+            arr.push(pre + r + post);
+        }
+    }
 
-        renderBatchList(); // Render list
-        updateLayout(); // Update layout
-        render(); // Render canvas
+    // Small pause at 100% for satisfaction
+    await new Promise(r => setTimeout(r, 200));
 
-        document.body.classList.remove('updating'); // Remove loading state
-    }, 300);
+    state.dataList = arr; // Update state
+    state.previewIndex = 0; // Reset index
+
+    renderBatchList(); // Render list
+    updateLayout(); // Update layout
+    render(); // Render canvas
+
+    els.modal.classList.add('hidden'); // Remove loading modal
 };
 
 /* ================================
@@ -321,13 +384,11 @@ els.btnRemoveBg.onclick = () => {
    CSV / EXCEL INPUT
 ================================ */
 els.btnDownloadTemplate.onclick = () => {
-    saveAs(
-        new Blob(
-            ["FILLYOURCODEBELOW\nCODE001\nCODE002"],
-            { type: 'text/csv;charset=utf-8;' }
-        ),
-        "Template.csv"
+    const blob = new Blob(
+        ["FILLYOURCODEBELOW\nCODE001\nCODE002"],
+        { type: 'text/csv;charset=utf-8;' }
     );
+    window.downloadBlob(blob, "Template.csv");
 };
 
 els.excelFile.onchange = (e) => {
