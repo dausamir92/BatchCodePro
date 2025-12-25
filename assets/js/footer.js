@@ -224,37 +224,28 @@
 
     document.body.insertAdjacentHTML('beforeend', footerHTML); // Inject footer at bottom
 
-    // Fetch git version info
-    fetch('.git/refs/heads/main')
-        .then(response => response.ok ? response.text() : Promise.reject())
-        .then(hash => {
-            const shortHash = hash.trim().substring(0, 7);
+    // Fetch version info from version.json
+    fetch('version.json')
+        .then(response => response.json())
+        .then(data => {
             const versionEl = document.getElementById('git-version');
+            const dateEl = document.getElementById('git-date');
+
             if (versionEl) {
-                versionEl.textContent = `v${shortHash}`;
+                versionEl.textContent = `v${data.version}`;
             }
 
-            // Try to get commit date from git log
-            return fetch('.git/logs/HEAD');
-        })
-        .then(response => response.ok ? response.text() : Promise.reject())
-        .then(log => {
-            const lines = log.trim().split('\n');
-            const lastLine = lines[lines.length - 1];
-            const timestamp = parseInt(lastLine.split(' ')[4]);
-            const date = new Date(timestamp * 1000);
-            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-
-            const dateEl = document.getElementById('git-date');
             if (dateEl) {
+                const date = new Date(data.date);
+                const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
                 dateEl.textContent = dateStr;
             }
         })
         .catch(() => {
-            // Fallback if git files aren't accessible
+            // Fallback if version.json isn't accessible
             const versionEl = document.getElementById('git-version');
             const dateEl = document.getElementById('git-date');
-            if (versionEl) versionEl.textContent = 'V1.0.251225';
+            if (versionEl) versionEl.textContent = 'v1.03.251225';
             if (dateEl) dateEl.textContent = 'Dec 25, 2024';
         });
 })();
