@@ -14,7 +14,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
                 <div>
                     <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-blue-600 inline-block pb-1">
+                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-blue-600 pb-1 text-center">
                         Developed By</h2>
                     <div class="flex items-center gap-4 group">
                         <div
@@ -36,53 +36,152 @@
 
                 <div class="relative">
                     <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-indigo-600 inline-block pb-1">
+                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-indigo-600 pb-1 text-center">
                         Roadmap</h2>
-                    <div class="roadmap-line"></div>
-                    <ul class="space-y-8 relative z-10">
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg></div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase mb-1">
-                                    Released</p>
-                                <p class="text-sm font-black text-slate-800">1. Batch Engine Pro</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10 animate-pulse">
-                                <span class="text-xs font-bold">2</span></div>
-                            <div>
-                                <p
-                                    class="text-[10px] font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase mb-1">
-                                    Active Coding</p>
-                                <p class="text-sm font-black text-slate-800">2. Pro Designer Suite</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div
-                                class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
-                                <span class="text-xs font-bold">3</span></div>
-                            <div class="opacity-70">
-                                <p
-                                    class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
-                                    Planned</p>
-                                <p class="text-sm font-black text-slate-800">3. Workspace Sync</p>
-                            </div>
-                        </li>
-                    </ul>
+                    <style>
+                        .roadmap-scroll {
+                            max-height: 200px;
+                            overflow-y: auto;
+                            padding-right: 8px;
+                        }
+                        .roadmap-scroll::-webkit-scrollbar {
+                            width: 4px;
+                        }
+                        .roadmap-scroll::-webkit-scrollbar-track {
+                            background: transparent;
+                        }
+                        .roadmap-scroll::-webkit-scrollbar-thumb {
+                            background: #e2e8f0;
+                            border-radius: 3px;
+                        }
+                        .roadmap-scroll::-webkit-scrollbar-thumb:hover {
+                            background: #cbd5e1;
+                        }
+                    </style>
+                    <div class="roadmap-scroll">
+                        <div class="roadmap-line"></div>
+                        <ul class="space-y-8 relative z-10">
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-emerald-500 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                            clip-rule="evenodd"></path>
+                                    </svg></div>
+                                <div>
+                                    <p
+                                        class="text-[10px] font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded uppercase mb-1">
+                                        Released</p>
+                                    <p class="text-sm font-black text-slate-800">Batch Engine Pro</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-blue-600 text-white rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10 animate-pulse">
+                                    <span class="text-xs font-bold">2</span></div>
+                                <div>
+                                    <p
+                                        class="text-[10px] font-black text-blue-600 bg-blue-50 px-2 py-0.5 rounded uppercase mb-1">
+                                        Active Coding</p>
+                                    <p class="text-sm font-black text-slate-800">Pro Designer Suite</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">3</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Workspace Sync</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">4</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Advanced Analytics</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">5</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Team Collaboration</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">6</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">API Integration</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">7</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Mobile App</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">8</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Custom Templates</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">9</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Bulk Export Tools</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div
+                                    class="w-7 h-7 bg-slate-200 text-slate-500 rounded-full flex items-center justify-center shrink-0 border-2 border-white z-10">
+                                    <span class="text-xs font-bold">10</span></div>
+                                <div class="opacity-70">
+                                    <p
+                                        class="text-[10px] font-black text-slate-500 bg-slate-100 px-2 py-0.5 rounded uppercase mb-1">
+                                        Planned</p>
+                                    <p class="text-sm font-black text-slate-800">Premium Support</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div>
                     <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-emerald-600 inline-block pb-1">
+                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-emerald-600 pb-1 text-center">
                         Feedback</h2>
                     <p class="text-sm text-slate-500 mb-6 font-medium">Please send your feedback directly to my email to
                         help improve this utility.</p>
@@ -102,15 +201,15 @@
 
                 <div>
                     <h2
-                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-slate-400 inline-block pb-1">
+                        class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-slate-400 pb-1 text-center">
                         System Status</h2>
                     <div class="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
                         <div class="flex justify-between items-center"><span
                                 class="text-xs font-black uppercase text-slate-400">Version</span><span
-                                class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded-md">V1.0.3
-                                Stable</span></div>
+                                id="git-version"
+                                class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded-md">Loading...</span></div>
                         <div class="flex justify-between text-xs font-bold"><span class="text-slate-400 uppercase">Last
-                                Build</span><span class="text-slate-800">Dec 21, 2024</span></div>
+                                Build</span><span id="git-date" class="text-slate-800">Loading...</span></div>
                         <div class="flex justify-between text-xs font-bold"><span
                                 class="text-slate-400 uppercase">Status</span><span
                                 class="text-emerald-500">Online</span></div>
@@ -124,4 +223,38 @@
     `;
 
     document.body.insertAdjacentHTML('beforeend', footerHTML); // Inject footer at bottom
+
+    // Fetch git version info
+    fetch('.git/refs/heads/main')
+        .then(response => response.ok ? response.text() : Promise.reject())
+        .then(hash => {
+            const shortHash = hash.trim().substring(0, 7);
+            const versionEl = document.getElementById('git-version');
+            if (versionEl) {
+                versionEl.textContent = `v${shortHash}`;
+            }
+
+            // Try to get commit date from git log
+            return fetch('.git/logs/HEAD');
+        })
+        .then(response => response.ok ? response.text() : Promise.reject())
+        .then(log => {
+            const lines = log.trim().split('\n');
+            const lastLine = lines[lines.length - 1];
+            const timestamp = parseInt(lastLine.split(' ')[4]);
+            const date = new Date(timestamp * 1000);
+            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+            const dateEl = document.getElementById('git-date');
+            if (dateEl) {
+                dateEl.textContent = dateStr;
+            }
+        })
+        .catch(() => {
+            // Fallback if git files aren't accessible
+            const versionEl = document.getElementById('git-version');
+            const dateEl = document.getElementById('git-date');
+            if (versionEl) versionEl.textContent = 'V1.0.251225';
+            if (dateEl) dateEl.textContent = 'Dec 25, 2024';
+        });
 })();
