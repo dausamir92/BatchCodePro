@@ -1,10 +1,10 @@
         .canvas-container {
             width: 100%;
-            height: 480px; 
-            overflow: auto; 
-            background-color: #f8fafc; 
+            height: 480px;
+            overflow: auto;
+            background-color: #f8fafc;
             border: 2px dashed #cbd5e1;
-            display: grid; 
+            display: grid;
             place-items: center;
             position: relative;
             cursor: grab;
@@ -17,56 +17,135 @@
             border-style: solid;
             box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
         }
-        
-        .canvas-container.panning { cursor: grabbing; }
-        
+
+        .canvas-container.panning {
+            cursor: grabbing;
+        }
+
         canvas {
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            max-width: none; 
+            max-width: none;
             max-height: none;
             display: block;
             transform-origin: center center;
             background: white;
         }
 
-        .step-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .preview-scroll::-webkit-scrollbar { width: 6px; }
-        .preview-scroll::-webkit-scrollbar-track { background: #f1f1f1; }
-        .preview-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .preview-item { cursor: pointer; transition: background-color 0.2s; }
-        .preview-item:hover { background-color: #eff6ff; }
-        .preview-item.selected { background-color: #dbeafe; border-left: 4px solid #2563eb; }
+        .step-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-        .type-radio:checked + label {
+        .preview-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .preview-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .preview-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .preview-item {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .preview-item:hover {
+            background-color: #eff6ff;
+        }
+
+        .preview-item.selected {
+            background-color: #dbeafe;
+            border-left: 4px solid #2563eb;
+        }
+
+        .type-radio:checked+label {
             background-color: #eff6ff;
             border-color: #2563eb;
             color: #1d4ed8;
             box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
         }
 
-        .download-anim-container { width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative; }
-        .dl-tray {
-            width: 60px; height: 10px; border: 4px solid #2563eb; border-top: 0;
-            position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); border-radius: 0 0 8px 8px;
-        }
-        .dl-file-icon {
-            width: 25px; height: 35px; background: #2563eb; position: absolute; left: 50%;
-            margin-left: -12.5px; border-radius: 4px; animation: file-drop 1.2s infinite ease-in;
-        }
-        .dl-file-icon::after {
-            content: ''; position: absolute; top: 5px; left: 5px; width: 12px; height: 2px;
-            background: rgba(255,255,255,0.5); box-shadow: 0 6px 0 rgba(255,255,255,0.5), 0 12px 0 rgba(255,255,255,0.5);
-        }
-        @keyframes file-drop {
-            0% { transform: translateY(-40px); opacity: 0; }
-            40% { transform: translateY(0); opacity: 1; }
-            70% { transform: translateY(5px); opacity: 1; }
-            100% { transform: translateY(15px); opacity: 0; }
+        .download-anim-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            position: relative;
         }
 
-        body.updating { cursor: wait !important; }
-        body.updating * { pointer-events: none !important; }
+        .dl-tray {
+            width: 60px;
+            height: 10px;
+            border: 4px solid #2563eb;
+            border-top: 0;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 8px 8px;
+        }
+
+        .dl-file-icon {
+            width: 25px;
+            height: 35px;
+            background: #2563eb;
+            position: absolute;
+            left: 50%;
+            margin-left: -12.5px;
+            border-radius: 4px;
+            animation: file-drop 1.2s infinite ease-in;
+        }
+
+        .dl-file-icon::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 12px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 0 rgba(255, 255, 255, 0.5), 0 12px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes file-drop {
+            0% {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+
+            40% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            70% {
+                transform: translateY(5px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(15px);
+                opacity: 0;
+            }
+        }
+
+        body.updating {
+            cursor: wait !important;
+        }
+
+        body.updating * {
+            pointer-events: none !important;
+        }
 
         .roadmap-line {
-            position: absolute; left: 13px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; z-index: 0;
+            position: absolute;
+            left: 13px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 0;
         }

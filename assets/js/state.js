@@ -21,8 +21,8 @@ const state = {
     canvasWidth: 600, // Canvas width
     canvasHeight: 300, // Canvas height
 
-    zoomLevel: 1.0, // Zoom level
-    zoomMode: 'fit', // Zoom mode (fit/manual)
+    zoomLevel: 0.5, // Zoom level (50% default)
+    zoomMode: 'manual', // Zoom mode (fit/manual)
 
     isDragging: false, // Dragging state
     isResizing: false, // Resizing state
