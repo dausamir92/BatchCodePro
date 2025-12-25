@@ -1,0 +1,3 @@
+updateLayout();
+render();
+renderBatchList();
