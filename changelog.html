@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changelog - Batch Code Generator Pro</title>
+    <link href="./assets/css/output.css" rel="stylesheet">
+    <style>
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-sans min-h-screen flex flex-col text-slate-900">
+
+    <script src="./assets/js/header.js"></script>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-12 w-full text-center">
+        <div class="mb-8">
+            <h1 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Changelog</h1>
+            <p class="text-slate-500 font-medium text-sm">Track all updates and improvements to Batch Code Generator Pro
+            </p>
+        </div>
+
+        <!-- Scrollable Container -->
+        <div class="bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden text-left">
+            <div class="bg-slate-50 px-6 py-3 border-b border-slate-200 flex justify-between items-center">
+                <h3 class="font-bold text-slate-700 text-sm uppercase tracking-wide">Version History</h3>
+                <span class="text-xs font-bold text-slate-400">Scroll to view older versions</span>
+            </div>
+
+            <div style="height: 65vh;" class="overflow-y-auto p-6 space-y-8 custom-scrollbar bg-slate-50/30">
+                <!-- Version 1.06.251225 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-blue-400 transition-colors">
+                    <div
+                        class="bg-white px-6 py-4 border-b border-slate-100 flex items-center justify-between group-hover:bg-blue-50/50 transition-colors">
+                        <div>
+                            <h2 class="text-lg font-black text-slate-900" id="latest-version-title">Version 1.06.251225
+                            </h2>
+                            <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mt-1"
+                                id="latest-version-date">December 25, 2024
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-8">
+                        <!-- Generator Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-blue-600 rounded-full"></span>
+                                Generator Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Compact feature card with 6 features in one
+                                        row
+                                    </p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Custom loader animation for file downloads
+                                    </p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Distinct icon colors (blue, indigo,
+                                        emerald,
+                                        purple, amber, rose)</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Changed</span>
+                                    <p class="text-sm text-slate-600 flex-1">Default canvas zoom to 50%</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        style="display: inline-block; width: 70px; background-color: #fef3c7; color: #b45309;"
+                                        class="px-2 py-0.5 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Fixed</span>
+                                    <p class="text-sm text-slate-600 flex-1">Padding inputs now block negative values
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dashboard Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-indigo-600 rounded-full"></span>
+                                Dashboard Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span
+                                        style="display: inline-block; width: 70px; background-color: #fef3c7; color: #b45309;"
+                                        class="px-2 py-0.5 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Fixed</span>
+                                    <p class="text-sm text-slate-600 flex-1">Sprite animation display issues (double
+                                        images,
+                                        frame positioning)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version 1.05.251225 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-blue-400 transition-colors">
+                    <div
+                        class="bg-white px-6 py-4 border-b border-slate-100 group-hover:bg-blue-50/50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-black text-slate-800">Version 1.05.251225</h2>
+                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mt-1">December 25,
+                                    2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-8">
+                        <!-- Footer Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                                Footer Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Dynamic versioning system reading from
+                                        version.json</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Enhanced layout with Roadmap, Feedback, and
+                                        System Status sections</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- System Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                                System Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Auto-update hook for automated version
+                                        tracking
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version 1.04.251225 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-blue-400 transition-colors">
+                    <div
+                        class="bg-white px-6 py-4 border-b border-slate-100 group-hover:bg-blue-50/50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-black text-slate-800">Version 1.04.251225</h2>
+                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mt-1">December 25,
+                                    2024
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-8">
+                        <!-- UI/UX Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                                UI/UX Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Changed</span>
+                                    <p class="text-sm text-slate-600 flex-1">Implemented "Pro" branding and distinct
+                                        visual
+                                        style</p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Changed</span>
+                                    <p class="text-sm text-slate-600 flex-1">Standardized button styles and color
+                                        palette
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version 1.03.251225 -->
+                <div
+                    class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden group hover:border-blue-400 transition-colors">
+                    <div
+                        class="bg-white px-6 py-4 border-b border-slate-100 group-hover:bg-blue-50/50 transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <h2 class="text-xl font-black text-slate-800">Version 1.03.251225</h2>
+                                <p class="text-xs font-bold text-slate-500 uppercase tracking-wide mt-1">December 25,
+                                    2024
+                                </p>
+                            </div>
+                            <span
+                                class="px-3 py-1 bg-slate-200 text-slate-600 text-xs font-black rounded-full uppercase">Initial
+                                Release</span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-8">
+                        <!-- Core Module -->
+                        <div>
+                            <h3 style="display: inline-flex;"
+                                class="text-sm font-black text-slate-700 uppercase tracking-wide mb-4 pb-2 border-b-2 border-slate-200 items-center gap-2">
+                                <span class="w-2 h-2 bg-slate-500 rounded-full"></span>
+                                Core Module
+                            </h3>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Initial release of Batch Code Generator Pro
+                                    </p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">Basic Barcode and QR Code generation logic
+                                    </p>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <span style="display: inline-block; width: 70px;"
+                                        class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[10px] font-black rounded uppercase mt-0.5 text-center flex-shrink-0">Added</span>
+                                    <p class="text-sm text-slate-600 flex-1">ZIP and Excel export functionality</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for future versions -->
+                <div class="text-center py-12">
+                    <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                    </div>
+                    <p class="text-sm font-bold text-slate-400 uppercase tracking-wide">More updates coming soon</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="./assets/js/footer.js"></script>
+
+    <!-- Script to update latest version from version.js or version.json -->
+    <script>
+        function updateChangelogHeader(data) {
+            const titleEl = document.getElementById('latest-version-title');
+            const dateEl = document.getElementById('latest-version-date');
+
+            if (titleEl && data.version) {
+                titleEl.textContent = `Version ${data.version}`;
+            }
+
+            if (dateEl && data.date) {
+                const date = new Date(data.date);
+                const options = { month: 'long', day: 'numeric', year: 'numeric' };
+                dateEl.textContent = date.toLocaleDateString('en-US', options);
+            }
+        }
+
+        // Try load version.js first (better for file://)
+        const vScript = document.createElement('script');
+        vScript.src = './assets/js/version.js';
+        vScript.onload = function () {
+            if (window.generatedVersion) {
+                updateChangelogHeader(window.generatedVersion);
+            }
+        };
+        vScript.onerror = function () {
+            // Fallback to fetch
+            fetch('version.json')
+                .then(response => response.json())
+                .then(data => updateChangelogHeader(data))
+                .catch(console.error);
+        };
+        document.body.appendChild(vScript);
+    </script>
+</body>
+
+</html>

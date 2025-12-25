@@ -28,6 +28,15 @@ echo   "date": "!COMMIT_DATE!"
 echo }
 ) > version.json
 
+REM Also write to assets/js/version.js for local file access (bypasses CORS)
+(
+echo window.generatedVersion = {
+echo   "version": "!VERSION!",
+echo   "commit": "!COMMIT_HASH!",
+echo   "date": "!COMMIT_DATE!"
+echo };
+) > assets\js\version.js
+
 echo ✅ version.json updated
 echo    Version: !VERSION!
 echo    Commit:  !COMMIT_HASH!

@@ -213,6 +213,17 @@
                         <div class="flex justify-between text-xs font-bold"><span
                                 class="text-slate-400 uppercase">Status</span><span
                                 class="text-emerald-500">Online</span></div>
+                        <div class="pt-3 border-t border-slate-100">
+                            <a href="changelog.html" class="flex items-center justify-between text-xs font-bold hover:text-blue-600 transition-colors group">
+                                <span class="text-slate-400 uppercase">Changelog</span>
+                                <span class="flex items-center gap-1 text-blue-600" style="white-space: nowrap;">
+                                    <span class="text-blue-600 group-hover:underline">View All</span>
+                                    <svg class="w-3 h-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -224,28 +235,43 @@
 
     document.body.insertAdjacentHTML('beforeend', footerHTML); // Inject footer at bottom
 
-    // Fetch version info from version.json
-    fetch('version.json')
-        .then(response => response.json())
-        .then(data => {
-            const versionEl = document.getElementById('git-version');
-            const dateEl = document.getElementById('git-date');
+    // Function to update DOM elements
+    function updateVersionDisplay(data) {
+        const versionEl = document.getElementById('git-version');
+        const dateEl = document.getElementById('git-date');
 
-            if (versionEl) {
-                versionEl.textContent = `v${data.version}`;
-            }
+        if (versionEl && data.version) {
+            versionEl.textContent = `v${data.version}`;
+        }
 
-            if (dateEl) {
-                const date = new Date(data.date);
-                const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-                dateEl.textContent = dateStr;
-            }
-        })
-        .catch(() => {
-            // Fallback if version.json isn't accessible
-            const versionEl = document.getElementById('git-version');
-            const dateEl = document.getElementById('git-date');
-            if (versionEl) versionEl.textContent = 'v1.03.251225';
-            if (dateEl) dateEl.textContent = 'Dec 25, 2024';
-        });
+        if (dateEl && data.date) {
+            const date = new Date(data.date);
+            const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            dateEl.textContent = dateStr;
+        }
+    }
+
+    // Attempt 1: Try loading version.js (Works for file:// protocol)
+    const script = document.createElement('script');
+    script.src = './assets/js/version.js';
+    script.onload = function () {
+        if (window.generatedVersion) {
+            updateVersionDisplay(window.generatedVersion);
+        }
+    };
+    script.onerror = function () {
+        // Attempt 2: Fallback to fetch (Works for http:// server)
+        fetch('version.json')
+            .then(response => response.json())
+            .then(data => updateVersionDisplay(data))
+            .catch(() => {
+                // Fallback defaults
+                const versionEl = document.getElementById('git-version');
+                const dateEl = document.getElementById('git-date');
+                if (versionEl) versionEl.textContent = 'v1.06.251225';
+                if (dateEl) dateEl.textContent = 'Dec 25, 2024';
+            });
+    };
+    document.body.appendChild(script);
+
 })();
