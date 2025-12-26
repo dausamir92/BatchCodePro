@@ -201,8 +201,11 @@
 
         // Initialize state
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        // Default to LIGHT if no preference (removed system preference check for dark default)
+        if (savedTheme === 'dark') {
             setTheme(true);
+        } else {
+            setTheme(false); // Ensure light mode is active by default
         }
 
         // Re-attach event listener to the correct ID in the new HTML
