@@ -38,43 +38,7 @@
                     <h2
                         class="text-xl font-black text-slate-900 mb-6 uppercase tracking-widest border-b-2 border-indigo-600 pb-1 text-center">
                         Roadmap</h2>
-                    <style>
-                        .roadmap-scroll {
-                            max-height: 200px;
-                            overflow-y: auto;
-                            padding-right: 12px;
-                            position: relative;
-                        }
-                        .roadmap-scroll::-webkit-scrollbar {
-                            width: 6px;
-                        }
-                        .roadmap-scroll::-webkit-scrollbar-track {
-                            background: rgba(0,0,0,0.05);
-                            border-radius: 10px;
-                        }
-                        .roadmap-scroll::-webkit-scrollbar-thumb {
-                            background: #cbd5e1;
-                            border-radius: 10px;
-                        }
-                        .dark .roadmap-scroll::-webkit-scrollbar-track {
-                            background: rgba(255,255,255,0.05);
-                        }
-                        .dark .roadmap-scroll::-webkit-scrollbar-thumb {
-                            background: #475569;
-                        }
-                        .roadmap-line {
-                            position: absolute;
-                            left: 14px; /* Precisely center with w-7 (28px) icons */
-                            top: 0;
-                            bottom: 0;
-                            width: 2px;
-                            background: #e2e8f0;
-                            z-index: 0;
-                        }
-                        .dark .roadmap-line {
-                            background: #334155;
-                        }
-                    </style>
+
                     <div class="roadmap-scroll">
                         <div class="roadmap-line"></div>
                         <ul class="space-y-8 relative z-10">
