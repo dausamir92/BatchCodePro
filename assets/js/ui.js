@@ -3,8 +3,6 @@
    ================================
    Modal dialogs and UI feedback functions.
 */
-
-// ui.js
 // ui.js
 function showAlert(title, body, isError = true) {
     els.modalTitle.textContent = title;

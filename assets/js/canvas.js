@@ -33,7 +33,7 @@ function updateZoom() {
     els.canvas.style.height = (state.canvasHeight * state.zoomLevel) + "px"; // Apply height
 }
 
-// Main rendering loop: draws background, box, barcode/QR, and text
+
 // Main rendering loop: draws background, box, barcode/QR, and text
 function render() {
     els.canvas.width = state.canvasWidth; els.canvas.height = state.canvasHeight; // Set canvas size
@@ -59,7 +59,6 @@ function render() {
     ctx.fillStyle = "#2563eb"; ctx.beginPath(); ctx.arc(x + w, y + h, 6 / state.zoomLevel, 0, Math.PI * 2); ctx.fill(); // Draw resize handle
 }
 
-// Renders the list of generated codes in the sidebar
 // Renders the list of generated codes in the sidebar
 function renderBatchList() {
     els.batchList.innerHTML = ''; els.batchCount.textContent = state.dataList.length + " items"; // Update count
