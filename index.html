@@ -4,16 +4,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
   <title>Batch Code Pro - Dashboard</title>
   <link href="./assets/css/output.css" rel="stylesheet">
+  <link href="./assets/css/theme.css" rel="stylesheet">
   <!-- Inline styles to guarantee layout structure regardless of CSS file state -->
   <style>
     /* Base Reset & Layout */
     body {
-      background-color: #f8fafc;
-      /* slate-50 */
-      color: #0f172a;
-      /* slate-900 */
+      transition: none !important;
+      /* Prevent initial load flash */
     }
 
     .saas-container {
@@ -108,7 +115,8 @@
   </style>
 </head>
 
-<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
+<body
+  class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col items-center justify-start preload">
 
   <script src="./assets/js/header.js"></script>
 

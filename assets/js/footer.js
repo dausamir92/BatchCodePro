@@ -9,8 +9,8 @@
 
 (function () {
     const footerHTML = `
-    <footer class="bg-slate-50 border-t border-slate-200 pt-20 pb-12">
-        <div class="max-w-7xl mx-auto px-4">
+    <footer class="w-full bg-slate-50 pt-20 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-left">
                 <div>
                     <h2
@@ -42,20 +42,37 @@
                         .roadmap-scroll {
                             max-height: 200px;
                             overflow-y: auto;
-                            padding-right: 8px;
+                            padding-right: 12px;
+                            position: relative;
                         }
                         .roadmap-scroll::-webkit-scrollbar {
-                            width: 4px;
+                            width: 6px;
                         }
                         .roadmap-scroll::-webkit-scrollbar-track {
-                            background: transparent;
+                            background: rgba(0,0,0,0.05);
+                            border-radius: 10px;
                         }
                         .roadmap-scroll::-webkit-scrollbar-thumb {
-                            background: #e2e8f0;
-                            border-radius: 3px;
-                        }
-                        .roadmap-scroll::-webkit-scrollbar-thumb:hover {
                             background: #cbd5e1;
+                            border-radius: 10px;
+                        }
+                        .dark .roadmap-scroll::-webkit-scrollbar-track {
+                            background: rgba(255,255,255,0.05);
+                        }
+                        .dark .roadmap-scroll::-webkit-scrollbar-thumb {
+                            background: #475569;
+                        }
+                        .roadmap-line {
+                            position: absolute;
+                            left: 14px; /* Precisely center with w-7 (28px) icons */
+                            top: 0;
+                            bottom: 0;
+                            width: 2px;
+                            background: #e2e8f0;
+                            z-index: 0;
+                        }
+                        .dark .roadmap-line {
+                            background: #334155;
                         }
                     </style>
                     <div class="roadmap-scroll">

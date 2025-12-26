@@ -1,0 +1,202 @@
+:root {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --accent-blue: #2563eb;
+    --nav-bg: #ffffff;
+    --header-bg: rgba(255, 255, 255, 0.8);
+}
+
+.dark {
+    --bg-primary: #020617;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --accent-blue: #3b82f6;
+    --nav-bg: #0f172a;
+    --header-bg: rgba(2, 6, 23, 0.8);
+    --dark-mode-invert: 1;
+}
+
+/* Preload state to prevent FOUC/Flicker */
+.preload,
+.preload * {
+    transition: none !important;
+}
+
+/* Global Theme Styles */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Broad component overrides */
+.saas-sidebar,
+.bg-white,
+[class*="bg-white"],
+.bg-slate-50,
+.bg-slate-100,
+.bg-slate-200,
+.saas-grid>a,
+.saas-grid>div,
+footer,
+.roadmap-scroll,
+.config-panel,
+.preview-panel,
+.step-card,
+.preview-scroll,
+.roadmap-scroll {
+    background-color: var(--bg-card) !important;
+    border-color: transparent !important;
+    /* Hide borders */
+    color: var(--text-primary) !important;
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+    /* Soft shadow replacement */
+}
+
+/* Explicit Border Overrides */
+[class*="border-slate-"],
+[class*="border-gray-"],
+.border-slate-200,
+.border-slate-100 {
+    border-color: var(--border-color) !important;
+}
+
+/* Visibility Overrides for Inputs, Selects and Labels */
+input,
+select,
+textarea,
+label {
+    color: var(--text-primary) !important;
+}
+
+input,
+select,
+textarea {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--border-color) !important;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Fixed Dropdown Options */
+select option {
+    background-color: var(--bg-card) !important;
+    color: var(--text-primary) !important;
+}
+
+/* Fix spinbox buttons in webkit */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    filter: invert(var(--dark-mode-invert, 0));
+}
+
+label[for*="type"] {
+    border-color: var(--border-color) !important;
+    color: var(--text-secondary) !important;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.dark label[for*="type"]:hover,
+.dark .type-radio:checked+label {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+    color: #60a5fa !important;
+    border-color: #3b82f6 !important;
+}
+
+input::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 0.6;
+}
+
+/* Selection & Hover in Lists (Batch Listing) */
+.preview-item:hover {
+    background-color: rgba(255, 255, 255, 0.02) !important;
+}
+
+.preview-item.selected {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+.dark .preview-item.selected {
+    background-color: rgba(59, 130, 246, 0.3) !important;
+    color: #f8fafc !important;
+    border-left: 3px solid #3b82f6 !important;
+}
+
+/* Specifically for Footer/Sidebar elements that rely on white bg */
+.dark footer,
+.dark .saas-sidebar,
+.dark .bg-slate-50,
+.dark .bg-slate-100,
+.dark .bg-white,
+.dark .canvas-container {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border-color) !important;
+}
+
+.dark #mainCanvas,
+.dark #canvasContainer {
+    background: #0f172a !important;
+    border-color: var(--border-color) !important;
+}
+
+.dark .text-black,
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-slate-500 {
+    color: var(--text-primary) !important;
+}
+
+.dark .text-slate-400,
+.dark .text-gray-500 {
+    color: var(--text-secondary) !important;
+}
+
+.dark .text-slate-300 {
+    color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Changelog & Badge Refinements */
+.dark .bg-emerald-100 {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+.dark .text-emerald-700 {
+    color: #34d399 !important;
+}
+
+.dark .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.2) !important;
+}
+
+.dark .text-blue-700 {
+    color: #60a5fa !important;
+}
+
+.dark .bg-amber-100,
+.dark [style*="background-color: #fef3c7"] {
+    background-color: rgba(245, 158, 11, 0.2) !important;
+}
+
+.dark [style*="color: #b45309"],
+.dark .text-amber-700 {
+    color: #fbbf24 !important;
+}
+
+/* "Apply All Codes" Button Dark Mode friendliness */
+.dark #btnDoGen {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+.dark #btnDoGen:hover {
+    background-color: #2563eb !important;
+}

@@ -4,9 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <title>Batch Code Generator Pro</title>
 
     <link href="./assets/css/output.css" rel="stylesheet">
+    <link href="./assets/css/theme.css" rel="stylesheet">
     <link href="./assets/css/generator.css" rel="stylesheet">
     <!-- Excel / CSV parser -->
     <script src="./assets/js/lib/xlsx.full.min.js"></script>
@@ -25,11 +34,12 @@
 </head>
 
 
-<body class="bg-slate-50 font-sans min-h-screen flex flex-col text-slate-900">
+<body
+    class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col preload">
 
 
 
-    <main class="max-w-7xl mx-auto px-4 py-10 w-full flex-grow">
+    <main class="max-w-7xl mx-auto px-6 py-10 w-full flex-grow">
 
         <section class="mb-6">
             <!-- Single Consolidated Feature Card with Header -->
@@ -211,11 +221,15 @@
                             <input type="text" id="genPostfix" placeholder="Postfix"
                                 class="border border-slate-200 rounded-lg p-2.5 text-xs outline-none font-bold">
                         </div>
-                        <select id="genMethod"
-                            class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 outline-none">
-                            <option value="seq">Sequential Numbers</option>
-                            <option value="rand" selected>Random Codes</option>
-                        </select>
+                        <div>
+                            <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Generation
+                                Type</label>
+                            <select id="genMethod"
+                                class="w-full border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-700 outline-none">
+                                <option value="seq">Sequential Numbers</option>
+                                <option value="rand" selected>Random Codes</option>
+                            </select>
+                        </div>
                         <div id="setSeq" class="hidden grid grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Start
@@ -234,24 +248,36 @@
                         </div>
                         <div id="setRand" class="space-y-3">
                             <div class="grid grid-cols-2 gap-3">
-                                <input type="number" id="genRandLen" value="8" min="1"
-                                    oninput="if(this.value<1)this.value=1"
-                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full">
-                                <select id="genCharset"
-                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
-                                    <option value="alphanum">AlphaNum</option>
-                                    <option value="num">Numeric</option>
-                                    <option value="custom" selected>Custom</option>
-                                </select>
+                                <div>
+                                    <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Code
+                                        Length</label>
+                                    <input type="number" id="genRandLen" value="8" min="1"
+                                        oninput="if(this.value<1)this.value=1"
+                                        class="border border-slate-200 rounded-lg p-2.5 text-xs w-full">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Character
+                                        Type</label>
+                                    <select id="genCharset"
+                                        class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold">
+                                        <option value="alphanum">AlphaNum</option>
+                                        <option value="num">Numeric</option>
+                                        <option value="custom" selected>Custom</option>
+                                    </select>
+                                </div>
                             </div>
-                            <textarea id="customChars" rows="2"
-                                class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold resize-none leading-relaxed break-all">ABCDEFGHJKLMNPQRSTUVWXYZ23456789</textarea>
+                            <div>
+                                <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Custom
+                                    Characters</label>
+                                <textarea id="customChars" rows="4"
+                                    class="border border-slate-200 rounded-lg p-2.5 text-xs w-full font-bold resize-none leading-relaxed break-all overflow-y-auto">ABCDEFGHJKLMNPQRSTUVWXYZ23456789</textarea>
+                            </div>
                         </div>
                         <label class="block text-[10px] uppercase font-bold text-slate-400 mb-1">Quantity</label>
                         <input type="number" id="genQty" value="10" min="1" oninput="if(this.value<1)this.value=1"
                             class="w-full border-2 border-slate-100 rounded-lg p-3 text-sm font-black text-blue-600 outline-none mb-4">
                         <button id="btnDoGen"
-                            class="w-full bg-slate-800 hover:bg-black text-white font-bold text-xs py-4 rounded-xl shadow-lg uppercase active:scale-95 transition-all">Apply
+                            class="w-full bg-slate-800 hover:bg-black dark:bg-blue-600 dark:hover:bg-blue-700 text-white font-bold text-xs py-4 rounded-xl shadow-lg uppercase active:scale-95 transition-all">Apply
                             All Codes</button>
                     </div>
                 </div>
@@ -316,7 +342,7 @@
                     <h2 class="text-md font-bold mb-5 flex items-center text-slate-800 uppercase tracking-wide">
                         <span
                             class="w-7 h-7 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center text-xs mr-3 shadow-sm">3</span>
-                        Overlay Mode
+                        Add Image Background
                     </h2>
                     <div class="p-4 rounded-xl border border-dashed border-slate-200 bg-slate-50">
                         <input type="file" id="bgFile" accept="image/*"
@@ -390,11 +416,12 @@
         <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden">
             <div id="modalHeader"
                 class="bg-red-600 p-5 text-white font-black flex justify-between items-center uppercase text-sm">
-                <span>Alert</span><button onclick="closeModal()" class="text-xl font-bold">&times;</button>
+                <span id="modalTitle">Alert</span><button onclick="closeModal()"
+                    class="text-xl font-bold">&times;</button>
             </div>
             <div class="p-8 text-center">
-                <p id="modalBody" class="text-slate-600 text-xs font-semibold mb-8"></p><button onclick="closeModal()"
-                    class="w-full bg-slate-900 text-white px-6 py-3 rounded-xl font-black text-[10px] uppercase">Close</button>
+                <p id="modalBody" class="text-slate-600 text-xs font-semibold mb-8"></p>
+                <div id="modalButtons" class="flex gap-3 justify-center"></div>
             </div>
         </div>
     </div>

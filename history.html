@@ -3,43 +3,61 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Batch History</title>
-  <!-- Switched to local CLI output -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+  <title>Batch History - Batch Code Generator Pro</title>
   <link href="./assets/css/output.css" rel="stylesheet">
+  <link href="./assets/css/theme.css" rel="stylesheet">
 </head>
 
-<body class="bg-slate-50 min-h-screen flex flex-col font-sans text-slate-900">
+<body
+  class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col preload">
 
+  <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full text-center">
+    <div class="mb-8">
+      <h1 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Generation History</h1>
+      <p class="text-slate-500 font-medium text-sm text-center">Review and manage your previously generated batches</p>
+    </div>
 
-
-  <main class="max-w-4xl mx-auto p-6 flex-grow w-full">
-
-    <h1 class="text-2xl font-black mb-6">Generation History</h1>
-
-    <div id="historyList" class="space-y-4"></div>
+    <div id="historyList" class="max-w-3xl mx-auto space-y-4 text-left"></div>
   </main>
 
   <script src="./assets/js/header.js"></script>
   <script src="./assets/js/footer.js"></script>
 
   <script>
-    const history = JSON.parse(localStorage.getItem("batchHistory") || "[]");
+    const historyData = JSON.parse(localStorage.getItem("batchHistory") || "[]");
     const list = document.getElementById("historyList");
 
-    if (history.length === 0) {
-      list.innerHTML = "<p class='text-slate-400'>No history yet.</p>";
+    if (historyData.length === 0) {
+      list.innerHTML = `
+                <div class="bg-white border border-slate-200 rounded-2xl p-12 text-center shadow-sm">
+                    <p class='text-slate-400 font-bold'>No history yet.</p>
+                </div>`;
+    } else {
+      historyData.reverse().forEach(h => {
+        const div = document.createElement("div");
+        div.className = "bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex justify-between items-center";
+        div.innerHTML = `
+                    <div>
+                        <div class="font-black text-slate-800 uppercase text-xs mb-1">${h.type.toUpperCase()}</div>
+                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${h.date}</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-sm font-black text-blue-600">${h.count} CODES</div>
+                        <div class="text-[9px] font-bold text-slate-400 uppercase">Generated</div>
+                    </div>
+                `;
+        list.appendChild(div);
+      });
     }
-
-    history.reverse().forEach(h => {
-      const div = document.createElement("div");
-      div.className = "bg-white p-4 rounded-xl shadow border";
-      div.innerHTML = `
-        <div class="font-bold">${h.type.toUpperCase()}</div>
-        <div class="text-xs text-slate-500">${h.date}</div>
-        <div class="mt-2 text-sm">${h.count} codes generated</div>
-      `;
-      list.appendChild(div);
-    });
   </script>
 </body>
 

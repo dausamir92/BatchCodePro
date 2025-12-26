@@ -81,15 +81,17 @@ els.container.onwheel = (e) => {
 ================================ */
 // Reset button handler
 els.btnResetAll.onclick = () => {
-    state.dataList = ["YOURCODESHOWHERE"]; // Reset data
-    state.previewIndex = 0; // Reset index
-    state.bgImage = null; // Clear background
+    showConfirm("Reset All", "Are you sure you want to <b>clear all data</b> and start over?<br>This action cannot be undone.", () => {
+        state.dataList = ["YOURCODESHOWHERE"]; // Reset data
+        state.previewIndex = 0; // Reset index
+        state.bgImage = null; // Clear background
 
-    renderBatchList(); // Re-render list
-    updateLayout(); // Re-calc layout
-    render(); // Re-draw canvas
+        renderBatchList(); // Re-render list
+        updateLayout(); // Re-calc layout
+        render(); // Re-draw canvas
 
-    showMessage("Reset", "Cleared.", false); // Show success message
+        showAlert("Reset", "All data has been cleared.", false); // Show success message
+    });
 };
 
 // Generate button handler
@@ -100,6 +102,12 @@ els.btnDoGen.onclick = async () => {
 
     const arr = []; // Temp array
     const qty = parseInt(els.genQty.value) || 1; // Get quantity
+
+    if (qty > 9999) {
+        els.modal.classList.add('hidden'); // Hide loading modal
+        showAlert("Limit Exceeded", "Maximum generation quantity is <b>9999</b>.<br>Please reduce the quantity.");
+        return;
+    }
     const pre = els.genPrefix.value || ""; // Get prefix
     const post = els.genPostfix.value || ""; // Get postfix
     const isSeq = els.genMethod.value === 'seq';

@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <title>Changelog - Batch Code Generator Pro</title>
     <link href="./assets/css/output.css" rel="stylesheet">
+    <link href="./assets/css/theme.css" rel="stylesheet">
     <style>
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
@@ -26,12 +35,13 @@
     </style>
 </head>
 
-<body class="bg-slate-50 font-sans min-h-screen flex flex-col text-slate-900">
+<body
+    class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans min-h-screen flex flex-col preload">
 
     <script src="./assets/js/header.js"></script>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 py-12 w-full text-center">
+    <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full text-center">
         <div class="mb-8">
             <h1 class="text-3xl font-black text-slate-900 mb-2 tracking-tight">Changelog</h1>
             <p class="text-slate-500 font-medium text-sm">Track all updates and improvements to Batch Code Generator Pro

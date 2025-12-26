@@ -69,6 +69,8 @@ const els = {
     msgModal: $('messageModal'), // Message modal
     modalBody: $('modalBody'), // Message body
     modalHeader: $('modalHeader'), // Message header
+    modalTitle: $('modalTitle'), // Message title
+    modalButtons: $('modalButtons'), // Message buttons container
 
     btnResetAll: $('btnResetAll'), // Reset button
     codeFont: $('codeFont'), // Font select
