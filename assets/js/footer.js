@@ -234,7 +234,7 @@
 
     // Attempt 1: Try loading version.js (Works for file:// protocol)
     const script = document.createElement('script');
-    script.src = './assets/js/version.js';
+    script.src = `./assets/js/version.js?v=${Date.now()}`;
     script.onload = function () {
         if (window.generatedVersion) {
             updateVersionDisplay(window.generatedVersion);
