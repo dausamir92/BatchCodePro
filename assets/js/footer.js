@@ -234,7 +234,7 @@
 
     // Attempt 1: Try loading version.js (Works for file:// protocol)
     const script = document.createElement('script');
-    script.src = `./assets/js/version.js?v=${Date.now()}`;
+    script.src = `./assets/js/version.js?t=${new Date().getTime()}`;
     script.onload = function () {
         if (window.generatedVersion) {
             updateVersionDisplay(window.generatedVersion);
@@ -242,7 +242,7 @@
     };
     script.onerror = function () {
         // Attempt 2: Fallback to fetch (Works for http:// server)
-        fetch('version.json')
+        fetch(`version.json?t=${new Date().getTime()}`)
             .then(response => response.json())
             .then(data => updateVersionDisplay(data))
             .catch(() => {

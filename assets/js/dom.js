@@ -55,6 +55,7 @@ const els = {
 
     btnDownload: $('btnDownload'), // ZIP download button
     btnDownloadExcel: $('btnDownloadExcel'), // Excel download button
+    btnDownloadCSV: $('btnDownloadCSV'), // CSV download button
 
     settingBarcodeSpec: $('settingBarcodeSpec'), // Barcode settings div
     settingQrSpec: $('settingQrSpec'), // QR settings div

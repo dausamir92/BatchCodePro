@@ -1,5 +1,5 @@
 window.generatedVersion = {
-  "version": "1.12.261225",
-  "commit": "f820916",
-  "date": "2025-12-26"
+  "version": "1.13.291225",
+  "commit": "48447a3",
+  "date": "2025-12-29"
 };
